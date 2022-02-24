@@ -1,0 +1,37 @@
+---
+title: '#Bastos'
+author: "Kuya Kevin"
+date: "2/24/2022"
+output: html_document
+---
+
+## #Bastos Trending on Twitter Philippines (2/24/22) 
+
+It was around 6:30 pm when i started looking for any topics in my daily project. There were news of war breaking up in the borders of Ukraine. Some people even consider this the onset of World War 3 whenever US and NATO start pulling their strings. At the very least, they did some damage by penalizing Russia with some economic sanctions. China might be the actual one benefiting from this entire mess given it's "open" nature.  
+Around the Philippines though, it was this #Bastos that trended with thousands of tweets battling it out as to who's "bastos". And there goes Junior with his publicity stint of showing people that he's got the nerve going to Negros after his father mercilessly drowned the entire province to debt and hunger in the 1980s. It's when one of his cronny wanted to interfere with the natural market forces and hoards the entire sugar industry. That's how greedy they were.  
+Anyway, i'll be exploring the user location of those who tweeted bastos and look for possible troll farm clues.  
+Here are the libraries i'll be using  
+```{r message=FALSE, warning=FALSE}
+library(rtweet)
+library(ggplot2)
+library(dplyr)
+library(tidytext)
+```
+Since I'm using Twitter API, I grabbed my tokens and secrets beforehand and plugged them in into this code:
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+#twitter_token <- create_token(
+#  app = appname,
+#  consumer_key = key,
+#  consumer_secret = secret,
+#  access_token = accesstoken,
+#  access_secret = accesssecret)
+
+```
+
+Now, the hunt begins.. First i want to pull out the data frame for tweets which has the hashtag #BASTOS.  
+```{r}
+bastos <-search_tweets(q="Bastos",n=500,include_rts = FALSE)
+bastos
+```
+
+We will be concerned with the users 
